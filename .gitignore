@@ -1,0 +1,24 @@
+# IDE & System
+.idea/
+.vscode/
+.DS_Store
+*.suo
+*.sw?
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# Backend
+backend/target/
+backend/.mvn/
+backend/*.jar
+backend/*.war
+
+# Sensitive local configurations
+**/application-local.properties
+**/application-local.yml
+.env
+.env.local

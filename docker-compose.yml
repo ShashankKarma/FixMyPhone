@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: fixmyphone-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: fixmyphone
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fixmyphone-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/fixmyphone?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_MAIL_HOST: maildev
+      SPRING_MAIL_PORT: 1025
+      JWT_SECRET: 9a4f2c8d3b7a1e5f8c6b2d4e7a9f0c1b3d5e7f8a2c4b6d8e0f1a3c5b7d9e1f2a
+      JWT_ACCESS_EXPIRATION: 3600000
+      JWT_REFRESH_EXPIRATION: 604800000
+      RAZORPAY_KEY_ID: rzp_test_mockkey123
+      RAZORPAY_KEY_SECRET: mocksecret1234567890abcdef
+      CLOUDINARY_CLOUD_NAME: mock-cloud
+      CLOUDINARY_API_KEY: mock-key
+      CLOUDINARY_API_SECRET: mock-secret
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fixmyphone-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  maildev:
+    image: maildev/maildev:latest
+    container_name: fixmyphone-maildev
+    restart: always
+    ports:
+      - "1083:1080" # Web UI
+      - "1025:1025" # SMTP Port
+
+volumes:
+  mysql_data:

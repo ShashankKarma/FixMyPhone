@@ -1,0 +1,625 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36mcom.fixmyphone:backend[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding backend 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.3.2:clean[m [1m(default-clean)[m @ [36mbackend[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:resources[m [1m(default-resources)[m @ [36mbackend[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mbackend[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :source
+[[1;34mINFO[m] Compiling 40 source files with javac [debug release 17] to target/classes
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;31mERROR[m] COMPILATION ERROR : 
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/appointment/AppointmentServiceImpl.java:[17,2] reference to Service is ambiguous
+  both class com.fixmyphone.backend.modules.shop.Service in com.fixmyphone.backend.modules.shop and class org.springframework.stereotype.Service in org.springframework.stereotype match
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/appointment/AppointmentServiceImpl.java:[11,1] a type with the same simple name is already defined by the single-type-import of com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/user/DatabaseSeeder.java:[36,29] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.user.Role
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/user/DatabaseSeeder.java:[46,30] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[25,55] cannot find symbol
+  symbol:   method getId()
+  location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[29,37] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[31,30] cannot find symbol
+  symbol:   method getName()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[32,37] cannot find symbol
+  symbol:   method getDescription()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[33,33] cannot find symbol
+  symbol:   method getAddress()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[34,30] cannot find symbol
+  symbol:   method getCity()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[35,31] cannot find symbol
+  symbol:   method getState()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[36,33] cannot find symbol
+  symbol:   method getZipCode()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[37,34] cannot find symbol
+  symbol:   method getLatitude()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[38,35] cannot find symbol
+  symbol:   method getLongitude()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[39,31] cannot find symbol
+  symbol:   method getPhone()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[40,31] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[52,67] cannot find symbol
+  symbol:   method getId()
+  location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[55,29] cannot find symbol
+  symbol:   method getName()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[56,36] cannot find symbol
+  symbol:   method getDescription()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[57,32] cannot find symbol
+  symbol:   method getAddress()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[58,29] cannot find symbol
+  symbol:   method getCity()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[59,30] cannot find symbol
+  symbol:   method getState()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[60,32] cannot find symbol
+  symbol:   method getZipCode()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[61,33] cannot find symbol
+  symbol:   method getLatitude()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[62,34] cannot find symbol
+  symbol:   method getLongitude()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[63,30] cannot find symbol
+  symbol:   method getPhone()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[64,30] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[114,13] cannot find symbol
+  symbol:   method setIsApproved(boolean)
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[125,18] cannot find symbol
+  symbol:   method getOwner()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[125,50] cannot find symbol
+  symbol:   method getId()
+  location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[129,106] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[131,30] cannot find symbol
+  symbol:   method getName()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[132,36] cannot find symbol
+  symbol:   method getCustomName()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[133,31] cannot find symbol
+  symbol:   method getPrice()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[134,41] cannot find symbol
+  symbol:   method getDurationMinutes()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[135,37] cannot find symbol
+  symbol:   method getIsAvailable()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[135,72] cannot find symbol
+  symbol:   method getIsAvailable()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[147,21] cannot find symbol
+  symbol:   method getShop()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[147,63] cannot find symbol
+  symbol:   method getId()
+  location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[151,32] cannot find symbol
+  symbol:   method getName()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[152,38] cannot find symbol
+  symbol:   method getCustomName()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[153,33] cannot find symbol
+  symbol:   method getPrice()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[154,43] cannot find symbol
+  symbol:   method getDurationMinutes()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[155,20] cannot find symbol
+  symbol:   method getIsAvailable()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[156,43] cannot find symbol
+  symbol:   method getIsAvailable()
+  location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[167,21] cannot find symbol
+  symbol:   method getShop()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[167,63] cannot find symbol
+  symbol:   method getId()
+  location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[189,34] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.shop.RepairShopResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[190,25] cannot find symbol
+  symbol:   method getId()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[191,30] cannot find symbol
+  symbol:   method getOwner()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[192,32] cannot find symbol
+  symbol:   method getOwner()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[193,27] cannot find symbol
+  symbol:   method getName()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[194,34] cannot find symbol
+  symbol:   method getDescription()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[195,30] cannot find symbol
+  symbol:   method getAddress()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[196,27] cannot find symbol
+  symbol:   method getCity()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[197,28] cannot find symbol
+  symbol:   method getState()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[198,30] cannot find symbol
+  symbol:   method getZipCode()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[199,31] cannot find symbol
+  symbol:   method getLatitude()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[200,32] cannot find symbol
+  symbol:   method getLongitude()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[201,28] cannot find symbol
+  symbol:   method getPhone()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[202,28] cannot find symbol
+  symbol:   method getEmail()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[203,29] cannot find symbol
+  symbol:   method getRating()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[204,35] cannot find symbol
+  symbol:   method getTotalReviews()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[205,33] cannot find symbol
+  symbol:   method getIsApproved()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[206,32] cannot find symbol
+  symbol:   method getCreatedAt()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[211,31] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.shop.ServiceResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[212,28] cannot find symbol
+  symbol:   method getId()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[213,32] cannot find symbol
+  symbol:   method getShop()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[214,30] cannot find symbol
+  symbol:   method getName()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[215,36] cannot find symbol
+  symbol:   method getCustomName()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[216,31] cannot find symbol
+  symbol:   method getPrice()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[217,41] cannot find symbol
+  symbol:   method getDurationMinutes()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[218,37] cannot find symbol
+  symbol:   method getIsAvailable()
+  location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[33,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[43,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[52,92] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[60,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[71,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[82,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[16,8] com.fixmyphone.backend.security.UserPrincipal is not abstract and does not override abstract method getPassword() in org.springframework.security.core.userdetails.UserDetails
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[27,50] cannot find symbol
+  symbol:   method getRoles()
+  location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[37,21] cannot find symbol
+  symbol:   method getIsLocked()
+  location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[35,21] cannot find symbol
+  symbol:   method getPassword()
+  location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[34,21] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[33,21] cannot find symbol
+  symbol:   method getName()
+  location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[32,21] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/JwtTokenProvider.java:[34,43] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/JwtTokenProvider.java:[39,43] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[31,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[41,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[49,80] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[87,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[89,81] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[90,67] cannot find symbol
+  symbol:   method getId()
+  location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShopResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[99,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[109,58] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[44,37] cannot find symbol
+  symbol:   method getEmail()
+  location: variable loginRequest of type @jakarta.validation.Valid com.fixmyphone.backend.modules.user.LoginRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[45,37] cannot find symbol
+  symbol:   method getPassword()
+  location: variable loginRequest of type @jakarta.validation.Valid com.fixmyphone.backend.modules.user.LoginRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[55,49] cannot find symbol
+  symbol:   method builder()
+  location: class com.fixmyphone.backend.modules.user.UserResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[56,34] cannot find symbol
+  symbol:   method getId()
+  location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;34mINFO[m] 100 errors 
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  13.048 s
+[[1;34mINFO[m] Finished at: 2026-06-21T16:07:19+05:30
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m on project [36mbackend[m: [1;31mCompilation failure[m: Compilation failure: 
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/appointment/AppointmentServiceImpl.java:[17,2] reference to Service is ambiguous
+[[1;31mERROR[m]   both class com.fixmyphone.backend.modules.shop.Service in com.fixmyphone.backend.modules.shop and class org.springframework.stereotype.Service in org.springframework.stereotype match
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/appointment/AppointmentServiceImpl.java:[11,1] a type with the same simple name is already defined by the single-type-import of com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/user/DatabaseSeeder.java:[36,29] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.user.Role
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/user/DatabaseSeeder.java:[46,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[25,55] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[29,37] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[31,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[32,37] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getDescription()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[33,33] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getAddress()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[34,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCity()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[35,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getState()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[36,33] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getZipCode()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[37,34] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getLatitude()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[38,35] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getLongitude()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[39,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPhone()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[40,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getEmail()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[52,67] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[55,29] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[56,36] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getDescription()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[57,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getAddress()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[58,29] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCity()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[59,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getState()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[60,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getZipCode()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[61,33] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getLatitude()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[62,34] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getLongitude()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[63,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPhone()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[64,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getEmail()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.RepairShopRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[114,13] cannot find symbol
+[[1;31mERROR[m]   symbol:   method setIsApproved(boolean)
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[125,18] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getOwner()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[125,50] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[129,106] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[131,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[132,36] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCustomName()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[133,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPrice()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[134,41] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getDurationMinutes()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[135,37] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsAvailable()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[135,72] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsAvailable()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[147,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getShop()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[147,63] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[151,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[152,38] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCustomName()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[153,33] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPrice()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[154,43] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getDurationMinutes()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[155,20] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsAvailable()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[156,43] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsAvailable()
+[[1;31mERROR[m]   location: variable request of type com.fixmyphone.backend.modules.shop.ServiceRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[167,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getShop()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[167,63] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable owner of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[189,34] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.shop.RepairShopResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[190,25] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[191,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getOwner()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[192,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getOwner()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[193,27] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[194,34] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getDescription()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[195,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getAddress()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[196,27] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCity()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[197,28] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getState()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[198,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getZipCode()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[199,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getLatitude()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[200,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getLongitude()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[201,28] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPhone()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[202,28] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getEmail()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[203,29] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getRating()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[204,35] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getTotalReviews()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[205,33] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsApproved()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[206,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCreatedAt()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShop
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[211,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.shop.ServiceResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[212,28] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[213,32] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getShop()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[214,30] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[215,36] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getCustomName()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[216,31] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPrice()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[217,41] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getDurationMinutes()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/modules/shop/RepairShopServiceImpl.java:[218,37] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsAvailable()
+[[1;31mERROR[m]   location: variable service of type com.fixmyphone.backend.modules.shop.Service
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[33,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[43,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[52,92] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[60,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[71,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AppointmentController.java:[82,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[16,8] com.fixmyphone.backend.security.UserPrincipal is not abstract and does not override abstract method getPassword() in org.springframework.security.core.userdetails.UserDetails
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[27,50] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getRoles()
+[[1;31mERROR[m]   location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[37,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getIsLocked()
+[[1;31mERROR[m]   location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[35,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPassword()
+[[1;31mERROR[m]   location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[34,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getEmail()
+[[1;31mERROR[m]   location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[33,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getName()
+[[1;31mERROR[m]   location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/UserPrincipal.java:[32,21] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable user of type com.fixmyphone.backend.modules.user.User
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/JwtTokenProvider.java:[34,43] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/security/JwtTokenProvider.java:[39,43] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[31,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[41,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[49,80] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[87,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[89,81] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[90,67] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable shop of type com.fixmyphone.backend.modules.shop.RepairShopResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[99,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/RepairShopController.java:[109,58] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[44,37] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getEmail()
+[[1;31mERROR[m]   location: variable loginRequest of type @jakarta.validation.Valid com.fixmyphone.backend.modules.user.LoginRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[45,37] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getPassword()
+[[1;31mERROR[m]   location: variable loginRequest of type @jakarta.validation.Valid com.fixmyphone.backend.modules.user.LoginRequest
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[55,49] cannot find symbol
+[[1;31mERROR[m]   symbol:   method builder()
+[[1;31mERROR[m]   location: class com.fixmyphone.backend.modules.user.UserResponse
+[[1;31mERROR[m] /home/shashank-karma/Documents/MyJavaProjects/ClientProject/backend/src/main/java/com/fixmyphone/backend/controller/AuthController.java:[56,34] cannot find symbol
+[[1;31mERROR[m]   symbol:   method getId()
+[[1;31mERROR[m]   location: variable userPrincipal of type com.fixmyphone.backend.security.UserPrincipal
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
