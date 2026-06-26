@@ -39,9 +39,10 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+        String cleanEmail = loginRequest.getEmail().toLowerCase().trim();
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getEmail(),
+                        cleanEmail,
                         loginRequest.getPassword()
                 )
         );
@@ -69,7 +70,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+        String cleanEmail = signUpRequest.getEmail().toLowerCase().trim();
+        if (userRepository.existsByEmail(cleanEmail)) {
             return new ResponseEntity<>("Email Address already in use!", HttpStatus.BAD_REQUEST);
         }
 
@@ -81,7 +83,7 @@ public class AuthController {
         // Creating user's account
         User user = User.builder()
                 .name(signUpRequest.getName())
-                .email(signUpRequest.getEmail())
+                .email(cleanEmail)
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
                 .phone(signUpRequest.getPhone())
                 .roles(Collections.singleton(userRole))
@@ -95,7 +97,7 @@ public class AuthController {
         // Authenticate immediately on successful registration
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        signUpRequest.getEmail(),
+                        cleanEmail,
                         signUpRequest.getPassword()
                 )
         );
@@ -119,7 +121,8 @@ public class AuthController {
     @PostMapping("/admin/register-owner")
     @org.springframework.security.access.prepost.PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> registerShopOwnerByAdmin(@Valid @RequestBody SignUpRequest signUpRequest) {
-        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+        String cleanEmail = signUpRequest.getEmail().toLowerCase().trim();
+        if (userRepository.existsByEmail(cleanEmail)) {
             return new ResponseEntity<>("Email Address already in use!", HttpStatus.BAD_REQUEST);
         }
 
@@ -128,7 +131,7 @@ public class AuthController {
 
         User user = User.builder()
                 .name(signUpRequest.getName())
-                .email(signUpRequest.getEmail())
+                .email(cleanEmail)
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
                 .phone(signUpRequest.getPhone())
                 .roles(Collections.singleton(userRole))
