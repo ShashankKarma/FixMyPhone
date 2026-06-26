@@ -6,12 +6,12 @@ import { Smartphone, Calendar, Clock, DollarSign, ChevronRight, ChevronLeft, Che
 const BookAppointment = () => {
   const { shopId } = useParams();
   const navigate = useNavigate();
-  
+
   const [shop, setShop] = useState(null);
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Wizard steps state
   const [step, setStep] = useState(1);
   const [selectedService, setSelectedService] = useState(null);
@@ -44,7 +44,7 @@ const BookAppointment = () => {
           shopsAPI.getServicesByShop(shopId)
         ]);
         setShop(shopData);
-        
+
         // Append "Other / Custom Problem" option
         const otherService = {
           id: -1,
@@ -165,7 +165,7 @@ const BookAppointment = () => {
             <p className="text-slate-400 max-w-md mx-auto mb-8">
               Your appointment at <span className="text-white font-semibold">{shop?.name}</span> has been confirmed. You can track status updates on your dashboard.
             </p>
-            
+
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-left max-w-md mx-auto mb-8 space-y-3">
               <div className="flex justify-between"><span className="text-slate-400">Service:</span><span className="font-semibold">{selectedService?.name}</span></div>
               <div className="flex justify-between"><span className="text-slate-400">Date:</span><span className="font-semibold">{selectedDate}</span></div>
@@ -243,7 +243,7 @@ const BookAppointment = () => {
             {step === 2 && (
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold mb-4">Select Date & Time Slot</h2>
-                
+
                 <div>
                   <label className="block text-slate-400 text-sm font-semibold mb-2">Select Date</label>
                   <div className="relative">
@@ -289,7 +289,7 @@ const BookAppointment = () => {
             {step === 3 && (
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold mb-4">Review and Confirm</h2>
-                
+
                 {/* Summary Card */}
                 <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-6 space-y-4">
                   <div className="flex items-center space-x-3 pb-4 border-b border-slate-800">
