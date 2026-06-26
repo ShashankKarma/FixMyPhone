@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { shopsAPI, appointmentsAPI } from '../../services/api';
 import { Smartphone, Calendar, Clock, DollarSign, ChevronRight, ChevronLeft, CheckCircle, FileText, ArrowRight, ShieldCheck } from 'lucide-react';
 
+const today = new Date().toISOString().split('T')[0];
+
 const BookAppointment = () => {
   const { shopId } = useParams();
   const navigate = useNavigate();
@@ -82,7 +84,13 @@ const BookAppointment = () => {
 
   const handleNextStep = () => {
     if (step === 1 && !selectedService) return;
-    if (step === 2 && (!selectedDate || !selectedSlot)) return;
+    if (step === 2) {
+      if (!selectedDate || !selectedSlot) return;
+      if (selectedDate < today) {
+        setError('Appointment date must be in the present or future.');
+        return;
+      }
+    }
     setStep(prev => prev + 1);
   };
 
@@ -105,13 +113,24 @@ const BookAppointment = () => {
       setBookingSuccess(true);
     } catch (err) {
       console.error('Error booking appointment:', err);
-      setError(err.response?.data?.message || 'Failed to complete booking. Please try again.');
+      let errorMsg = 'Failed to complete booking. Please try again.';
+      if (err.response && err.response.data) {
+        if (typeof err.response.data === 'string') {
+          errorMsg = err.response.data;
+        } else if (typeof err.response.data === 'object') {
+          const fieldErrors = Object.values(err.response.data);
+          if (fieldErrors.length > 0) {
+            errorMsg = fieldErrors.join(', ');
+          } else if (err.response.data.message) {
+            errorMsg = err.response.data.message;
+          }
+        }
+      }
+      setError(errorMsg);
     } finally {
       setBookingLoading(false);
     }
   };
-
-  const today = new Date().toISOString().split('T')[0];
 
   if (loading) {
     return (
@@ -255,6 +274,7 @@ const BookAppointment = () => {
                       onChange={(e) => {
                         setSelectedDate(e.target.value);
                         setSelectedSlot(''); // reset slot when date changes
+                        setError(null); // clear error when date changes
                       }}
                       className="w-full bg-slate-950/40 border border-slate-800 focus:border-sky-500 text-white pl-10 pr-4 py-3 rounded-xl outline-none transition cursor-pointer"
                     />
