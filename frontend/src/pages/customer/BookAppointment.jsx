@@ -36,6 +36,70 @@ const BookAppointment = () => {
     "05:00 PM - 06:00 PM"
   ];
 
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  const handlePrevMonth = () => {
+    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+  };
+
+  const handleNextMonth = () => {
+    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+  };
+
+  const formatDateString = (year, month, day) => {
+    const mm = String(month + 1).padStart(2, '0');
+    const dd = String(day).padStart(2, '0');
+    return `${year}-${mm}-${dd}`;
+  };
+
+  const isDateInPast = (year, month, day) => {
+    const cellDateString = formatDateString(year, month, day);
+    return cellDateString < today;
+  };
+
+  const getCalendarDays = () => {
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+    const firstDayInstance = new Date(year, month, 1);
+    const startDay = firstDayInstance.getDay();
+    const totalDays = new Date(year, month + 1, 0).getDate();
+    const prevTotalDays = new Date(year, month, 0).getDate();
+    const days = [];
+    
+    // Prefix days from previous month
+    for (let i = startDay - 1; i >= 0; i--) {
+      days.push({
+        day: prevTotalDays - i,
+        month: month === 0 ? 11 : month - 1,
+        year: month === 0 ? year - 1 : year,
+        isCurrentMonth: false
+      });
+    }
+    
+    // Days of current month
+    for (let i = 1; i <= totalDays; i++) {
+      days.push({
+        day: i,
+        month: month,
+        year: year,
+        isCurrentMonth: true
+      });
+    }
+    
+    // Suffix days for next month to complete the grid
+    const remainingCells = 42 - days.length;
+    for (let i = 1; i <= remainingCells; i++) {
+      days.push({
+        day: i,
+        month: month === 11 ? 0 : month + 1,
+        year: month === 11 ? year + 1 : year,
+        isCurrentMonth: false
+      });
+    }
+    
+    return days;
+  };
+
   // Fetch shop & services details
   useEffect(() => {
     const loadShopData = async () => {
@@ -264,20 +328,81 @@ const BookAppointment = () => {
                 <h2 className="text-2xl font-bold mb-4">Select Date & Time Slot</h2>
 
                 <div>
-                  <label className="block text-slate-400 text-sm font-semibold mb-2">Select Date</label>
-                  <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 h-5 w-5" />
-                    <input
-                      type="date"
-                      min={today}
-                      value={selectedDate}
-                      onChange={(e) => {
-                        setSelectedDate(e.target.value);
-                        setSelectedSlot(''); // reset slot when date changes
-                        setError(null); // clear error when date changes
-                      }}
-                      className="w-full bg-slate-950/40 border border-slate-800 focus:border-sky-500 text-white pl-10 pr-4 py-3 rounded-xl outline-none transition cursor-pointer"
-                    />
+                  <label className="block text-slate-400 text-sm font-semibold mb-3 flex items-center justify-between">
+                    <span>Select Date</span>
+                    {selectedDate && (
+                      <span className="text-xs font-bold text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full">
+                        Selected: {selectedDate}
+                      </span>
+                    )}
+                  </label>
+                  
+                  <div className="bg-slate-950/40 border border-slate-800 rounded-2xl p-5 relative overflow-hidden">
+                    {/* Calendar Month Header */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-bold text-base text-white tracking-wide">
+                        {currentMonth.toLocaleString('default', { month: 'long' })} {currentMonth.getFullYear()}
+                      </span>
+                      <div className="flex space-x-1.5">
+                        <button
+                          type="button"
+                          onClick={handlePrevMonth}
+                          className="p-1.5 border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-300 hover:text-white rounded-lg transition"
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleNextMonth}
+                          className="p-1.5 border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-300 hover:text-white rounded-lg transition"
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Weekday Names Header */}
+                    <div className="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-slate-500 mb-2.5">
+                      <div>Sun</div>
+                      <div>Mon</div>
+                      <div>Tue</div>
+                      <div>Wed</div>
+                      <div>Thu</div>
+                      <div>Fri</div>
+                      <div>Sat</div>
+                    </div>
+
+                    {/* Days Grid */}
+                    <div className="grid grid-cols-7 gap-1">
+                      {getCalendarDays().map((cell, idx) => {
+                        const dateStr = formatDateString(cell.year, cell.month, cell.day);
+                        const isPast = isDateInPast(cell.year, cell.month, cell.day);
+                        const isSelected = selectedDate === dateStr;
+                        const isActiveMonth = cell.isCurrentMonth;
+                        
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            disabled={isPast || !isActiveMonth}
+                            onClick={() => {
+                              setSelectedDate(dateStr);
+                              setSelectedSlot(''); // reset slot when date changes
+                              setError(null);
+                            }}
+                            className={`
+                              h-9 w-full flex items-center justify-center rounded-lg text-sm font-semibold transition duration-200
+                              ${!isActiveMonth ? 'text-slate-800 cursor-not-allowed select-none bg-transparent' : ''}
+                              ${isPast && isActiveMonth ? 'text-slate-600 line-through cursor-not-allowed bg-slate-950/20 opacity-40' : ''}
+                              ${isSelected && isActiveMonth ? 'bg-sky-500 text-white font-bold shadow-md shadow-sky-500/20 scale-[1.05]' : ''}
+                              ${!isSelected && !isPast && isActiveMonth ? 'text-slate-300 hover:bg-slate-800 bg-slate-900/40 hover:text-white' : ''}
+                            `}
+                          >
+                            {cell.day}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
