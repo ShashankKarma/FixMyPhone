@@ -65,7 +65,7 @@ const BookAppointment = () => {
     const totalDays = new Date(year, month + 1, 0).getDate();
     const prevTotalDays = new Date(year, month, 0).getDate();
     const days = [];
-    
+
     // Prefix days from previous month
     for (let i = startDay - 1; i >= 0; i--) {
       days.push({
@@ -75,7 +75,7 @@ const BookAppointment = () => {
         isCurrentMonth: false
       });
     }
-    
+
     // Days of current month
     for (let i = 1; i <= totalDays; i++) {
       days.push({
@@ -85,7 +85,7 @@ const BookAppointment = () => {
         isCurrentMonth: true
       });
     }
-    
+
     // Suffix days for next month to complete the grid
     const remainingCells = 42 - days.length;
     for (let i = 1; i <= remainingCells; i++) {
@@ -96,7 +96,7 @@ const BookAppointment = () => {
         isCurrentMonth: false
       });
     }
-    
+
     return days;
   };
 
@@ -336,7 +336,7 @@ const BookAppointment = () => {
                       </span>
                     )}
                   </label>
-                  
+
                   <div className="bg-slate-950/40 border border-slate-800 rounded-2xl p-5 relative overflow-hidden">
                     {/* Calendar Month Header */}
                     <div className="flex items-center justify-between mb-4">
@@ -379,7 +379,7 @@ const BookAppointment = () => {
                         const isPast = isDateInPast(cell.year, cell.month, cell.day);
                         const isSelected = selectedDate === dateStr;
                         const isActiveMonth = cell.isCurrentMonth;
-                        
+
                         return (
                           <button
                             key={idx}

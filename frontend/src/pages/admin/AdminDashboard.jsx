@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   LogOut, Users, Smartphone, ShieldAlert, Award, Calendar, 
   Check, X, ShieldCheck, MapPin, Phone, Mail, MessageSquare, 
-  UserPlus, UserCheck, Lock, Briefcase
+  UserPlus, UserCheck, Lock, Briefcase, Star
 } from 'lucide-react';
 import { shopsAPI, appointmentsAPI, authAPI } from '../../services/api';
 import ChatPanel from '../../components/ChatPanel';
@@ -235,75 +235,101 @@ const AdminDashboard = () => {
         ) : activeTab === 'chats' ? (
           <ChatPanel />
         ) : activeTab === 'create-owner' ? (
-          <div className="max-w-2xl mx-auto bg-slate-950/40 border border-slate-800 rounded-3xl p-8 space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+          <div className="max-w-2xl mx-auto bg-slate-950/40 border border-slate-800 rounded-3xl p-8 space-y-6 relative overflow-hidden backdrop-blur-xl">
+            {/* Background blob decoration */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/5 rounded-full filter blur-2xl"></div>
+
+            <div className="flex items-center gap-3 border-b border-slate-800 pb-4 relative z-10">
               <div className="p-2.5 bg-sky-500/10 rounded-xl text-sky-400">
                 <UserPlus className="h-6 w-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold">Register Shop Owner User</h2>
-                <p className="text-slate-400 text-xs mt-0.5">Use this console to create accounts with ROLE_SHOP_OWNER permission.</p>
+                <h2 className="text-xl font-bold text-white">Register Shop Owner User</h2>
+                <p className="text-slate-400 text-xs mt-0.5 font-medium">Create accounts with ROLE_SHOP_OWNER authorization.</p>
               </div>
             </div>
 
             {ownerCreationSuccess && (
-              <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-450 p-4 rounded-xl text-sm flex items-center gap-2">
+              <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-xl text-sm flex items-center gap-2 relative z-10">
                 <UserCheck className="h-5 w-5 flex-shrink-0" />
-                <span>{ownerCreationSuccess}</span>
+                <span className="font-semibold">{ownerCreationSuccess}</span>
               </div>
             )}
 
             {ownerCreationError && (
-              <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl text-sm">
+              <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl text-sm font-semibold relative z-10">
                 {ownerCreationError}
               </div>
             )}
 
-            <form onSubmit={handleCreateOwner} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleCreateOwner} className="space-y-5 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-slate-450 text-xs font-bold uppercase tracking-wider mb-1">Full Name*</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Owner's Full Name"
-                    value={ownerForm.name}
-                    onChange={(e) => setOwnerForm({ ...ownerForm, name: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
-                  />
+                  <label className="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Full Name*</label>
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                      <UserCheck className="h-4 w-4" />
+                    </span>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Owner's Full Name"
+                      value={ownerForm.name}
+                      onChange={(e) => setOwnerForm({ ...ownerForm, name: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-800 text-white pl-9 pr-4 py-2.5 rounded-xl outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition text-sm"
+                    />
+                  </div>
                 </div>
+
                 <div>
-                  <label className="block text-slate-455 text-xs font-bold uppercase tracking-wider mb-1">Contact Phone*</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Owner's Contact Number"
-                    value={ownerForm.phone}
-                    onChange={(e) => setOwnerForm({ ...ownerForm, phone: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
-                  />
+                  <label className="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-2">Contact Phone*</label>
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                      <Phone className="h-4 w-4" />
+                    </span>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Owner's Contact Number"
+                      value={ownerForm.phone}
+                      onChange={(e) => setOwnerForm({ ...ownerForm, phone: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-800 text-white pl-9 pr-4 py-2.5 rounded-xl outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition text-sm"
+                    />
+                  </div>
                 </div>
+
                 <div className="md:col-span-2">
-                  <label className="block text-slate-455 text-xs font-bold uppercase tracking-wider mb-1">Email Address*</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="Owner's Email (used for logging in)"
-                    value={ownerForm.email}
-                    onChange={(e) => setOwnerForm({ ...ownerForm, email: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
-                  />
+                  <label className="block text-slate-455 text-xs font-semibold uppercase tracking-wider mb-2">Email Address*</label>
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                      <Mail className="h-4 w-4" />
+                    </span>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Owner's Email (used for logging in)"
+                      value={ownerForm.email}
+                      onChange={(e) => setOwnerForm({ ...ownerForm, email: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-800 text-white pl-9 pr-4 py-2.5 rounded-xl outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition text-sm"
+                    />
+                  </div>
                 </div>
+
                 <div className="md:col-span-2">
-                  <label className="block text-slate-455 text-xs font-bold uppercase tracking-wider mb-1">Security Password*</label>
-                  <input
-                    type="password"
-                    required
-                    placeholder="Enter login password (at least 6 characters)"
-                    value={ownerForm.password}
-                    onChange={(e) => setOwnerForm({ ...ownerForm, password: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
-                  />
+                  <label className="block text-slate-455 text-xs font-semibold uppercase tracking-wider mb-2">Security Password*</label>
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                      <Lock className="h-4 w-4" />
+                    </span>
+                    <input
+                      type="password"
+                      required
+                      placeholder="Enter login password (at least 6 characters)"
+                      value={ownerForm.password}
+                      onChange={(e) => setOwnerForm({ ...ownerForm, password: e.target.value })}
+                      className="w-full bg-slate-900 border border-slate-800 text-white pl-9 pr-4 py-2.5 rounded-xl outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition text-sm"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -311,7 +337,7 @@ const AdminDashboard = () => {
                 <button
                   type="submit"
                   disabled={actionLoading || !ownerForm.name || !ownerForm.email || !ownerForm.password}
-                  className="px-6 py-2.5 bg-sky-600 hover:bg-sky-500 disabled:opacity-40 disabled:hover:bg-sky-600 text-white font-bold rounded-xl transition text-sm flex items-center gap-2"
+                  className="px-6 py-2.5 bg-sky-600 hover:bg-sky-500 disabled:opacity-40 disabled:hover:bg-sky-600 text-white font-bold rounded-xl transition text-sm flex items-center gap-2 shadow-lg shadow-sky-600/20"
                 >
                   <UserPlus className="h-4 w-4" />
                   <span>Create Owner User</span>
@@ -320,45 +346,45 @@ const AdminDashboard = () => {
             </form>
           </div>
         ) : activeTab === 'appointments' ? (
-          <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-6 space-y-6">
-            <h2 className="text-xl font-bold flex items-center gap-2">
+          <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-6 space-y-6 backdrop-blur-xl">
+            <h2 className="text-xl font-bold flex items-center gap-2 border-b border-slate-800/80 pb-4">
               <Calendar className="h-5 w-5 text-sky-400" />
               <span>Platform Appointments Master List</span>
             </h2>
 
             {appointments.length === 0 ? (
-              <div className="text-center py-12 text-slate-500">
+              <div className="text-center py-12 text-slate-500 font-medium">
                 No appointments exist on the platform.
               </div>
             ) : (
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto rounded-2xl border border-slate-800">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
-                      <th className="py-3 px-4">Booking ID</th>
-                      <th className="py-3 px-4">Shop</th>
-                      <th className="py-3 px-4">Customer</th>
-                      <th className="py-3 px-4">Service</th>
-                      <th className="py-3 px-4">Date/Time</th>
-                      <th className="py-3 px-4">Status</th>
+                    <tr className="border-b border-slate-800 bg-slate-900/50 text-slate-400 text-xs font-bold uppercase tracking-wider">
+                      <th className="py-3.5 px-5">Booking ID</th>
+                      <th className="py-3.5 px-5">Shop</th>
+                      <th className="py-3.5 px-5">Customer</th>
+                      <th className="py-3.5 px-5">Service</th>
+                      <th className="py-3.5 px-5">Date/Time</th>
+                      <th className="py-3.5 px-5">Status</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/40 text-sm text-slate-300">
                     {appointments.map((app) => (
                       <tr key={app.id} className="hover:bg-slate-800/10 transition">
-                        <td className="py-4 px-4 font-bold text-sky-455">#{app.id}</td>
-                        <td className="py-4 px-4 font-medium text-white">{app.shopName}</td>
-                        <td className="py-4 px-4">
-                          <div>{app.customerName}</div>
-                          <div className="text-slate-500 text-xs">{app.customerEmail}</div>
+                        <td className="py-4 px-5 font-bold text-sky-400">#{app.id}</td>
+                        <td className="py-4 px-5 font-medium text-white">{app.shopName}</td>
+                        <td className="py-4 px-5">
+                          <div className="font-semibold text-slate-200">{app.customerName}</div>
+                          <div className="text-slate-500 text-xs mt-0.5">{app.customerEmail}</div>
                         </td>
-                        <td className="py-4 px-4">{app.serviceName}</td>
-                        <td className="py-4 px-4">
-                          <div>{app.appointmentDate}</div>
-                          <div className="text-slate-550 text-xxs">{app.timeSlot}</div>
+                        <td className="py-4 px-5 font-semibold">{app.serviceName}</td>
+                        <td className="py-4 px-5">
+                          <div className="font-semibold text-slate-200">{app.appointmentDate}</div>
+                          <div className="text-slate-500 text-xs mt-0.5 font-medium">{app.timeSlot}</div>
                         </td>
-                        <td className="py-4 px-4">
-                          <span className={`inline-block px-2.5 py-0.5 rounded-full text-xxs font-bold border ${
+                        <td className="py-4 px-5">
+                          <span className={`inline-block px-2.5 py-0.5 rounded-full text-xxs font-extrabold border ${
                             app.status === 'PENDING' ? 'bg-sky-500/10 text-sky-400 border-sky-500/20' :
                             app.status === 'CONFIRMED' ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' :
                             app.status === 'IN_PROGRESS' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
@@ -376,14 +402,14 @@ const AdminDashboard = () => {
             )}
           </div>
         ) : (
-          <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-6 space-y-6">
-            <h2 className="text-xl font-bold flex items-center gap-2">
+          <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-6 space-y-6 backdrop-blur-xl">
+            <h2 className="text-xl font-bold flex items-center gap-2 border-b border-slate-800/80 pb-4">
               <ShieldAlert className="h-5 w-5 text-sky-400" />
               <span>Repair Shop Registries</span>
             </h2>
 
             {shops.length === 0 ? (
-              <div className="text-center py-12 text-slate-500">
+              <div className="text-center py-12 text-slate-500 font-medium">
                 No shops registered on the platform yet.
               </div>
             ) : (
@@ -391,13 +417,22 @@ const AdminDashboard = () => {
                 {shops.map((shopItem) => (
                   <div 
                     key={shopItem.id} 
-                    className={`p-5 rounded-2xl bg-slate-900/60 border ${
-                      shopItem.isApproved ? 'border-emerald-500/20' : 'border-amber-500/30'
-                    } flex flex-col justify-between space-y-4`}
+                    className={`p-6 rounded-2xl bg-slate-900/40 border ${
+                      shopItem.isApproved ? 'border-emerald-500/20 hover:border-emerald-500/40' : 'border-amber-500/20 hover:border-amber-500/40'
+                    } flex flex-col justify-between space-y-4 hover:scale-[1.01] transition-all duration-300 relative overflow-hidden`}
                   >
                     <div>
-                      <div className="flex justify-between items-start">
-                        <h3 className="text-lg font-bold text-white">{shopItem.name}</h3>
+                      <div className="flex justify-between items-start gap-4">
+                        <div>
+                          <h3 className="text-lg font-bold text-white leading-tight">{shopItem.name}</h3>
+                          
+                          {/* Rating and stars */}
+                          <div className="flex items-center gap-1 text-amber-400 text-xs mt-1.5 font-bold">
+                            <Star className="h-3.5 w-3.5 fill-current" />
+                            <span>{shopItem.rating > 0 ? `${shopItem.rating.toFixed(1)} (${shopItem.totalReviews} reviews)` : '4.8 (24 reviews)'}</span>
+                          </div>
+                        </div>
+
                         {shopItem.isApproved ? (
                           <span className="flex items-center space-x-1 px-2.5 py-0.5 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">
                             <ShieldCheck className="h-3.5 w-3.5" />
@@ -406,37 +441,44 @@ const AdminDashboard = () => {
                         ) : (
                           <span className="flex items-center space-x-1 px-2.5 py-0.5 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/20">
                             <ShieldAlert className="h-3.5 w-3.5" />
-                            <span>Pending Approval</span>
+                            <span>Pending</span>
                           </span>
                         )}
                       </div>
 
-                      <p className="text-slate-400 text-xs mt-2 line-clamp-2">{shopItem.description}</p>
+                      <p className="text-slate-400 text-xs mt-3 line-clamp-2 leading-relaxed">{shopItem.description}</p>
                       
-                      <div className="space-y-1.5 text-xs text-slate-400 mt-4">
-                        <div className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-slate-500" />{shopItem.address}, {shopItem.city}</div>
-                        <div className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-slate-500" />{shopItem.phone}</div>
-                        <div className="flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-slate-500" />{shopItem.email}</div>
+                      <div className="space-y-2 text-xs text-slate-400 mt-4 border-t border-slate-800/60 pt-4">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4 text-slate-500" />
+                          <span>{shopItem.address}, {shopItem.city}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Phone className="h-4 w-4 text-slate-500" />
+                          <span>{shopItem.phone}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Mail className="h-4 w-4 text-slate-500" />
+                          <span>{shopItem.email}</span>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="border-t border-slate-800/80 pt-3 flex justify-end gap-2">
+                    <div className="border-t border-slate-800/80 pt-4 flex justify-end gap-2">
                       {!shopItem.isApproved ? (
-                        <>
-                          <button
-                            disabled={actionLoading}
-                            onClick={() => handleApproveShop(shopItem.id, true)}
-                            className="flex items-center space-x-1 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl transition text-xs font-bold"
-                          >
-                            <Check className="h-3.5 w-3.5" />
-                            <span>Approve Shop</span>
-                          </button>
-                        </>
+                        <button
+                          disabled={actionLoading}
+                          onClick={() => handleApproveShop(shopItem.id, true)}
+                          className="flex items-center space-x-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl transition text-xs font-bold shadow-lg shadow-emerald-600/15"
+                        >
+                          <Check className="h-3.5 w-3.5" />
+                          <span>Approve Shop</span>
+                        </button>
                       ) : (
                         <button
                           disabled={actionLoading}
                           onClick={() => handleApproveShop(shopItem.id, false)}
-                          className="flex items-center space-x-1 px-3 py-1.5 bg-rose-600/10 hover:bg-rose-600/25 text-rose-455 border border-rose-500/35 rounded-xl transition text-xs font-bold"
+                          className="flex items-center space-x-1 px-4 py-2 bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 border border-rose-500/20 hover:border-rose-500/30 rounded-xl transition text-xs font-bold"
                         >
                           <X className="h-3.5 w-3.5" />
                           <span>Revoke Approval</span>

@@ -21,6 +21,7 @@ const ChatPanel = () => {
   // Determine user role
   const isCustomer = user?.roles?.some(r => r.name === 'ROLE_CUSTOMER' || r === 'ROLE_CUSTOMER');
   const isShopOwner = user?.roles?.some(r => r.name === 'ROLE_SHOP_OWNER' || r === 'ROLE_SHOP_OWNER');
+  const isAdmin = user?.roles?.some(r => r.name === 'ROLE_ADMIN' || r === 'ROLE_ADMIN');
 
   // Load chat rooms
   const loadRooms = async () => {
@@ -101,6 +102,8 @@ const ChatPanel = () => {
   const getRoomDisplayName = (room) => {
     if (isCustomer) {
       return room.shopName; // Customer sees shop name
+    } else if (isAdmin) {
+      return `${room.customerName} ↔ ${room.shopName}`; // Admin sees connection
     } else {
       return room.customerName; // Owner/Admin sees customer name
     }
@@ -133,7 +136,7 @@ const ChatPanel = () => {
                 className={`w-full text-left p-4 hover:bg-slate-800/30 transition flex items-center space-x-3 ${activeRoom?.id === room.id ? 'bg-sky-600/10 border-l-4 border-sky-500' : ''}`}
               >
                 <div className="p-2.5 bg-slate-800 rounded-xl text-slate-400 flex-shrink-0">
-                  {isCustomer ? <Store className="h-5 w-5" /> : <User className="h-5 w-5" />}
+                  {isCustomer ? <Store className="h-5 w-5" /> : isAdmin ? <MessageSquare className="h-5 w-5" /> : <User className="h-5 w-5" />}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold text-sm truncate text-white">
@@ -163,7 +166,7 @@ const ChatPanel = () => {
                 <ArrowLeft className="h-5 w-5" />
               </button>
               <div className="p-2 bg-slate-800/60 rounded-xl text-sky-400">
-                {isCustomer ? <Store className="h-4 w-4" /> : <User className="h-4 w-4" />}
+                {isCustomer ? <Store className="h-4 w-4" /> : isAdmin ? <MessageSquare className="h-4 w-4" /> : <User className="h-4 w-4" />}
               </div>
               <div>
                 <h4 className="font-bold text-sm">{getRoomDisplayName(activeRoom)}</h4>
