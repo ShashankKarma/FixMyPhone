@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { 
-  Smartphone, Wrench, Shield, DollarSign, Clock, HelpCircle, 
-  ChevronDown, ChevronUp, MapPin, Phone, ShieldCheck, Award, 
-  Eye, Star, Battery, Volume2, Camera, Zap, CheckCircle2,
-  ChevronRight, Laptop, MessageSquare
+  Smartphone, Wrench, Clock, ChevronDown, ChevronUp, MapPin, Phone, 
+  ShieldCheck, Award, Eye, Star, Battery, Volume2, Camera, Zap, 
+  ChevronRight, MessageSquare
 } from 'lucide-react';
 
 const Home = () => {

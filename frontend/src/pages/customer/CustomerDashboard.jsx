@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { 
   LogOut, User, Smartphone, Calendar, FileText, 
-  MessageSquare, Clock, MapPin, MessageCircle, AlertCircle
+  MessageSquare, Clock, MessageCircle, AlertCircle
 } from 'lucide-react';
 import { appointmentsAPI, chatAPI } from '../../services/api';
 import ChatPanel from '../../components/ChatPanel';

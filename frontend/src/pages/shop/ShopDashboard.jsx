@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { logout } from '../../features/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { 
-  LogOut, Wrench, Calendar, DollarSign, Star, Clock, User, Phone, 
+  LogOut, Wrench, Calendar, Star, Clock, User, Phone, 
   Mail, FileText, Check, X, ShieldAlert, Plus, Trash2, ShieldCheck, 
   MapPin, PenTool, Play, MessageSquare, Settings
 } from 'lucide-react';
@@ -13,7 +13,6 @@ import ChatPanel from '../../components/ChatPanel';
 const ShopDashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
 
   // Tab State
   const [activeTab, setActiveTab] = useState('overview'); // 'overview' | 'chats'

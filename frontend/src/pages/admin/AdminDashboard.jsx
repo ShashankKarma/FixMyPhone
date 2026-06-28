@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { 
-  LogOut, Users, Smartphone, ShieldAlert, Award, Calendar, 
+  LogOut, Users, Smartphone, ShieldAlert, Calendar, 
   Check, X, ShieldCheck, MapPin, Phone, Mail, MessageSquare, 
-  UserPlus, UserCheck, Lock, Briefcase, Star
+  UserPlus, UserCheck, Lock, Star
 } from 'lucide-react';
 import { shopsAPI, appointmentsAPI, authAPI } from '../../services/api';
 import ChatPanel from '../../components/ChatPanel';

@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { shopsAPI, appointmentsAPI } from '../../services/api';
-import { Smartphone, Calendar, Clock, DollarSign, ChevronRight, ChevronLeft, CheckCircle, FileText, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Smartphone, Clock, ChevronRight, ChevronLeft, CheckCircle, FileText, ArrowRight, ShieldCheck } from 'lucide-react';
 
 const today = new Date().toISOString().split('T')[0];
 
 const BookAppointment = () => {
   const { shopId } = useParams();
-  const navigate = useNavigate();
 
   const [shop, setShop] = useState(null);
   const [services, setServices] = useState([]);

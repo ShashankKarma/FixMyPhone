@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { chatAPI } from '../services/api';
 import { MessageSquare, Send, User, Store, Clock, ArrowLeft } from 'lucide-react';
@@ -20,7 +20,6 @@ const ChatPanel = () => {
 
   // Determine user role
   const isCustomer = user?.roles?.some(r => r.name === 'ROLE_CUSTOMER' || r === 'ROLE_CUSTOMER');
-  const isShopOwner = user?.roles?.some(r => r.name === 'ROLE_SHOP_OWNER' || r === 'ROLE_SHOP_OWNER');
   const isAdmin = user?.roles?.some(r => r.name === 'ROLE_ADMIN' || r === 'ROLE_ADMIN');
 
   // Load chat rooms

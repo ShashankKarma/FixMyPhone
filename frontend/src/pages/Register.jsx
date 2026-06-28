@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { loginStart, loginSuccess, loginFailure } from '../features/authSlice';
 import { authAPI } from '../services/api';
-import { Lock, Mail, User, Phone, Briefcase, Eye, EyeOff, Smartphone } from 'lucide-react';
+import { Lock, Mail, User, Phone, Eye, EyeOff, Smartphone } from 'lucide-react';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);

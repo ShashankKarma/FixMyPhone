@@ -8,7 +8,7 @@ let user = null;
 if (userJson) {
   try {
     user = JSON.parse(userJson);
-  } catch (e) {
+  } catch {
     localStorage.removeItem('user');
   }
 }
