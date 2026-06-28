@@ -60,4 +60,18 @@ public class ChatController {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
         return ResponseEntity.ok(chatService.sendMessage(roomId, request, sender));
     }
+
+    @GetMapping("/debug/db-check")
+    public ResponseEntity<?> dbCheck() {
+        try {
+            java.util.Map<String, Object> status = new java.util.HashMap<>();
+            status.put("chat_rooms_count", chatRoomRepository.count());
+            status.put("messages_count", chatMessageRepository.count());
+            return ResponseEntity.ok(status);
+        } catch (Exception e) {
+            java.io.StringWriter sw = new java.io.StringWriter();
+            e.printStackTrace(new java.io.PrintWriter(sw));
+            return ResponseEntity.status(500).body(sw.toString());
+        }
+    }
 }
