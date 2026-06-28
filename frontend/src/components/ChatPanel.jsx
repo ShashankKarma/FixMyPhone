@@ -207,23 +207,29 @@ const ChatPanel = () => {
             </div>
 
             {/* Input Form */}
-            <form onSubmit={handleSendMessage} className="p-4 border-t border-slate-800 bg-slate-950/30 flex gap-2">
-              <input
-                type="text"
-                placeholder="Type a message..."
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                disabled={sending}
-                className="flex-1 bg-slate-900 border border-slate-800 focus:border-sky-500 text-white px-4 py-2.5 rounded-xl outline-none transition text-sm"
-              />
-              <button
-                type="submit"
-                disabled={sending || !newMessage.trim()}
-                className="p-3 bg-sky-600 hover:bg-sky-500 disabled:opacity-40 disabled:hover:bg-sky-600 text-white rounded-xl transition flex-shrink-0"
-              >
-                <Send className="h-4 w-4" />
-              </button>
-            </form>
+            {!isAdmin ? (
+              <form onSubmit={handleSendMessage} className="p-4 border-t border-slate-800 bg-slate-950/30 flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Type a message..."
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  disabled={sending}
+                  className="flex-1 bg-slate-900 border border-slate-800 focus:border-sky-500 text-white px-4 py-2.5 rounded-xl outline-none transition text-sm"
+                />
+                <button
+                  type="submit"
+                  disabled={sending || !newMessage.trim()}
+                  className="p-3 bg-sky-600 hover:bg-sky-500 disabled:opacity-40 disabled:hover:bg-sky-600 text-white rounded-xl transition flex-shrink-0"
+                >
+                  <Send className="h-4 w-4" />
+                </button>
+              </form>
+            ) : (
+              <div className="p-4 border-t border-slate-800 bg-slate-950/30 text-center text-slate-500 text-sm font-medium">
+                This is a read-only view of the chat. Admins cannot send messages.
+              </div>
+            )}
           </>
         ) : (
           <div className="text-center p-8 space-y-2">

@@ -50,11 +50,12 @@ public class ChatServiceImpl implements ChatService {
     @Override
     @Transactional(readOnly = true)
     public List<ChatRoomResponse> getChatRooms(User user) {
+        boolean isAdmin = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_CUSTOMER"));
         boolean isShopOwner = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_SHOP_OWNER"));
 
-        if (isCustomer) {
-            return chatRoomRepository.findByCustomerId(user.getId()).stream()
+        if (isAdmin) {
+            return chatRoomRepository.findAll().stream()
                     .map(this::mapToRoomResponse)
                     .collect(Collectors.toList());
         } else if (isShopOwner) {
@@ -63,11 +64,12 @@ public class ChatServiceImpl implements ChatService {
             return chatRoomRepository.findByShopId(shop.getId()).stream()
                     .map(this::mapToRoomResponse)
                     .collect(Collectors.toList());
-        } else {
-            // Admin can see all rooms
-            return chatRoomRepository.findAll().stream()
+        } else if (isCustomer) {
+            return chatRoomRepository.findByCustomerId(user.getId()).stream()
                     .map(this::mapToRoomResponse)
                     .collect(Collectors.toList());
+        } else {
+            return List.of();
         }
     }
 
@@ -86,14 +88,16 @@ public class ChatServiceImpl implements ChatService {
 
         List<ChatMessage> messages = chatMessageRepository.findByRoomIdOrderByCreatedAtAsc(roomId);
         
-        // Mark messages as read if sent by the other party
-        List<ChatMessage> unreadMessages = messages.stream()
-                .filter(msg -> !msg.getSender().getId().equals(user.getId()) && !msg.getIsRead())
-                .peek(msg -> msg.setIsRead(true))
-                .collect(Collectors.toList());
+        // Mark messages as read if sent by the other party (only if viewer is not an admin)
+        if (!isAdmin) {
+            List<ChatMessage> unreadMessages = messages.stream()
+                    .filter(msg -> !msg.getSender().getId().equals(user.getId()) && !msg.getIsRead())
+                    .peek(msg -> msg.setIsRead(true))
+                    .collect(Collectors.toList());
 
-        if (!unreadMessages.isEmpty()) {
-            chatMessageRepository.saveAll(unreadMessages);
+            if (!unreadMessages.isEmpty()) {
+                chatMessageRepository.saveAll(unreadMessages);
+            }
         }
 
         return messages.stream()
@@ -106,11 +110,10 @@ public class ChatServiceImpl implements ChatService {
         ChatRoom room = chatRoomRepository.findById(roomId)
                 .orElseThrow(() -> new ResourceNotFoundException("Chat room not found"));
 
-        boolean isAdmin = sender.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = room.getCustomer().getId().equals(sender.getId());
         boolean isShopOwner = room.getShop().getOwner().getId().equals(sender.getId());
 
-        if (!isAdmin && !isCustomer && !isShopOwner) {
+        if (!isCustomer && !isShopOwner) {
             throw new UnauthorizedException("You are not authorized to send messages in this chat room");
         }
 

@@ -16,6 +16,9 @@ import java.util.stream.Collectors;
 
 import java.math.BigDecimal;
 
+import com.fixmyphone.backend.modules.chat.ChatRoom;
+import com.fixmyphone.backend.modules.chat.ChatRoomRepository;
+
 @Service
 @Transactional
 public class AppointmentServiceImpl implements AppointmentService {
@@ -31,6 +34,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private ChatRoomRepository chatRoomRepository;
 
     @Override
     public AppointmentResponse bookAppointment(AppointmentRequest request, User customer) {
@@ -86,6 +92,19 @@ public class AppointmentServiceImpl implements AppointmentService {
                 .build();
 
         Appointment savedApp = appointmentRepository.save(appointment);
+
+        // Auto-initiate Chat Room if not exists
+        try {
+            if (!chatRoomRepository.existsByCustomerIdAndShopId(customer.getId(), shop.getId())) {
+                ChatRoom chatRoom = ChatRoom.builder()
+                        .customer(customer)
+                        .shop(shop)
+                        .build();
+                chatRoomRepository.save(chatRoom);
+            }
+        } catch (Exception e) {
+            System.err.println("Error auto-initiating chat room on booking: " + e.getMessage());
+        }
 
         // Send Email Notifications
         try {
