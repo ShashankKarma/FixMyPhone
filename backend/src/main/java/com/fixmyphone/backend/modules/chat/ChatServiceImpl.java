@@ -80,7 +80,9 @@ public class ChatServiceImpl implements ChatService {
 
         boolean isAdmin = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = room.getCustomer().getId().equals(user.getId());
-        boolean isShopOwner = room.getShop().getOwner().getId().equals(user.getId());
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(room.getShop().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+        boolean isShopOwner = shopOwnerId.equals(user.getId());
 
         if (!isAdmin && !isCustomer && !isShopOwner) {
             throw new UnauthorizedException("You are not authorized to view messages in this chat room");
@@ -112,7 +114,9 @@ public class ChatServiceImpl implements ChatService {
 
         boolean isAdmin = sender.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = room.getCustomer().getId().equals(sender.getId());
-        boolean isShopOwner = room.getShop().getOwner().getId().equals(sender.getId());
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(room.getShop().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+        boolean isShopOwner = shopOwnerId.equals(sender.getId());
 
         if (!isAdmin && !isCustomer && !isShopOwner) {
             throw new UnauthorizedException("You are not authorized to send messages in this chat room");

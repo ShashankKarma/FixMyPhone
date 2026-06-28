@@ -11,4 +11,7 @@ public interface RepairShopRepository extends JpaRepository<RepairShop, Long> {
     List<RepairShop> findByCityIgnoreCaseAndIsApproved(String city, Boolean isApproved);
     Optional<RepairShop> findByOwnerId(Long ownerId);
     boolean existsByOwnerId(Long ownerId);
+
+    @org.springframework.data.jpa.repository.Query("SELECT s.owner.id FROM RepairShop s WHERE s.id = :shopId")
+    Optional<Long> findOwnerIdByShopId(@org.springframework.data.repository.query.Param("shopId") Long shopId);
 }

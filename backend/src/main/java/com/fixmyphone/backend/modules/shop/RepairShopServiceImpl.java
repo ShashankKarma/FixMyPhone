@@ -144,7 +144,10 @@ public class RepairShopServiceImpl implements RepairShopService {
         com.fixmyphone.backend.modules.shop.Service service = serviceRepository.findById(serviceId)
                 .orElseThrow(() -> new ResourceNotFoundException("Service not found"));
 
-        if (!service.getShop().getOwner().getId().equals(owner.getId())) {
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(service.getShop().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+
+        if (!shopOwnerId.equals(owner.getId())) {
             throw new UnauthorizedException("You are not authorized to update services in this shop");
         }
 
@@ -164,7 +167,10 @@ public class RepairShopServiceImpl implements RepairShopService {
         com.fixmyphone.backend.modules.shop.Service service = serviceRepository.findById(serviceId)
                 .orElseThrow(() -> new ResourceNotFoundException("Service not found"));
 
-        if (!service.getShop().getOwner().getId().equals(owner.getId())) {
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(service.getShop().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+
+        if (!shopOwnerId.equals(owner.getId())) {
             throw new UnauthorizedException("You are not authorized to delete services from this shop");
         }
 

@@ -126,7 +126,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         // Auth check: Admin, Customer of appointment, or Shop Owner of the shop can view
         boolean isAdmin = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = appointment.getCustomer().getId().equals(user.getId());
-        boolean isShopOwner = appointment.getShop().getOwner().getId().equals(user.getId());
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(appointment.getShop().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+        boolean isShopOwner = shopOwnerId.equals(user.getId());
 
         if (!isAdmin && !isCustomer && !isShopOwner) {
             throw new UnauthorizedException("You are not authorized to view this appointment");
@@ -149,7 +151,10 @@ public class AppointmentServiceImpl implements AppointmentService {
         RepairShop shop = repairShopRepository.findById(shopId)
                 .orElseThrow(() -> new ResourceNotFoundException("Repair Shop not found"));
 
-        if (!shop.getOwner().getId().equals(owner.getId())) {
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(shopId)
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+
+        if (!shopOwnerId.equals(owner.getId())) {
             throw new UnauthorizedException("You are not authorized to view appointments for this shop");
         }
 
@@ -180,7 +185,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         boolean isAdmin = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = appointment.getCustomer().getId().equals(user.getId());
-        boolean isShopOwner = appointment.getShop().getOwner().getId().equals(user.getId());
+        Long shopOwnerId = repairShopRepository.findOwnerIdByShopId(appointment.getShop().getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop owner not found"));
+        boolean isShopOwner = shopOwnerId.equals(user.getId());
 
         if (status == AppointmentStatus.CANCELLED) {
             // Customer or Owner or Admin can cancel

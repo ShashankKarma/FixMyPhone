@@ -127,16 +127,17 @@ public class DatabaseSeeder implements CommandLineRunner {
     }
 
     private void seedShopOwnerAndShop() {
+        User owner;
         Optional<User> ownerOpt = userRepository.findByEmail(ownerEmail);
         if (ownerOpt.isPresent()) {
-            User owner = ownerOpt.get();
+            owner = ownerOpt.get();
             owner.setPassword(passwordEncoder.encode(ownerPassword));
-            userRepository.save(owner);
+            owner = userRepository.save(owner);
         } else {
             Role ownerRole = roleRepository.findByName(RoleName.ROLE_SHOP_OWNER)
                     .orElseThrow(() -> new RuntimeException("ROLE_SHOP_OWNER not found"));
 
-            User owner = User.builder()
+            owner = User.builder()
                     .name("Sarah Shopowner")
                     .email(ownerEmail)
                     .password(passwordEncoder.encode(ownerPassword))
@@ -149,8 +150,10 @@ public class DatabaseSeeder implements CommandLineRunner {
 
             owner = userRepository.save(owner);
             System.out.println("Seeded default shop owner user: " + ownerEmail);
+        }
 
-            // Seed Shop
+        // Seed Shop if not exists
+        if (!repairShopRepository.existsByOwnerId(owner.getId())) {
             RepairShop shop = RepairShop.builder()
                     .owner(owner)
                     .name(shopName)

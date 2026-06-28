@@ -2,6 +2,7 @@ package com.fixmyphone.backend.controller;
 
 import com.fixmyphone.backend.exception.ResourceNotFoundException;
 import com.fixmyphone.backend.modules.chat.*;
+import com.fixmyphone.backend.modules.shop.RepairShop;
 import com.fixmyphone.backend.modules.user.User;
 import com.fixmyphone.backend.modules.user.UserRepository;
 import com.fixmyphone.backend.security.UserPrincipal;
@@ -73,6 +74,41 @@ public class ChatController {
             java.util.Map<String, Object> status = new java.util.HashMap<>();
             status.put("chat_rooms_count", chatRoomRepository.count());
             status.put("messages_count", chatMessageRepository.count());
+            
+            // Diagnostics for rooms
+            java.util.List<java.util.Map<String, Object>> roomsDetail = new java.util.ArrayList<>();
+            for (ChatRoom room : chatRoomRepository.findAll()) {
+                java.util.Map<String, Object> detail = new java.util.HashMap<>();
+                detail.put("room_id", room.getId());
+                detail.put("customer_id", room.getCustomer() != null ? room.getCustomer().getId() : null);
+                detail.put("customer_email", room.getCustomer() != null ? room.getCustomer().getEmail() : null);
+                
+                RepairShop shop = room.getShop();
+                detail.put("shop_id", shop != null ? shop.getId() : null);
+                detail.put("shop_name", shop != null ? shop.getName() : null);
+                
+                if (shop != null && shop.getOwner() != null) {
+                    detail.put("shop_owner_id", shop.getOwner().getId());
+                    detail.put("shop_owner_email", shop.getOwner().getEmail());
+                } else {
+                    detail.put("shop_owner_id", null);
+                    detail.put("shop_owner_email", null);
+                }
+                roomsDetail.add(detail);
+            }
+            status.put("rooms_detail", roomsDetail);
+            
+            // Diagnostics for users
+            java.util.List<java.util.Map<String, Object>> usersDetail = new java.util.ArrayList<>();
+            for (User u : userRepository.findAll()) {
+                java.util.Map<String, Object> detail = new java.util.HashMap<>();
+                detail.put("user_id", u.getId());
+                detail.put("email", u.getEmail());
+                detail.put("roles", u.getRoles().stream().map(r -> r.getName().name()).collect(java.util.stream.Collectors.toList()));
+                usersDetail.add(detail);
+            }
+            status.put("users_detail", usersDetail);
+            
             return ResponseEntity.ok(status);
         } catch (Exception e) {
             java.io.StringWriter sw = new java.io.StringWriter();
