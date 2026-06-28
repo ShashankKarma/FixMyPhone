@@ -110,10 +110,11 @@ public class ChatServiceImpl implements ChatService {
         ChatRoom room = chatRoomRepository.findById(roomId)
                 .orElseThrow(() -> new ResourceNotFoundException("Chat room not found"));
 
+        boolean isAdmin = sender.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));
         boolean isCustomer = room.getCustomer().getId().equals(sender.getId());
         boolean isShopOwner = room.getShop().getOwner().getId().equals(sender.getId());
 
-        if (!isCustomer && !isShopOwner) {
+        if (!isAdmin && !isCustomer && !isShopOwner) {
             throw new UnauthorizedException("You are not authorized to send messages in this chat room");
         }
 
