@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   LogOut, Wrench, Calendar, DollarSign, Star, Clock, User, Phone, 
   Mail, FileText, Check, X, ShieldAlert, Plus, Trash2, ShieldCheck, 
-  MapPin, PenTool, Play, MessageSquare
+  MapPin, PenTool, Play, MessageSquare, Settings
 } from 'lucide-react';
 import { shopsAPI, appointmentsAPI } from '../../services/api';
 import ChatPanel from '../../components/ChatPanel';
@@ -91,6 +91,22 @@ const ShopDashboard = () => {
   const handleLogout = () => {
     dispatch(logout());
     navigate('/');
+  };
+
+  // Update Shop Handler
+  const handleUpdateShop = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      setError(null);
+      await shopsAPI.updateShop(shopForm);
+      await loadDashboardData();
+      setActiveTab('overview');
+    } catch (err) {
+      console.error('Error updating shop:', err);
+      setError(err.response?.data?.message || 'Failed to update shop. Please check details.');
+      setLoading(false);
+    }
   };
 
   // Create Shop Handler
@@ -355,6 +371,33 @@ const ShopDashboard = () => {
               <span>Chats</span>
             </button>
             <button
+              onClick={() => {
+                setActiveTab('settings');
+                if (shop) {
+                  setShopForm({
+                    name: shop.name || '',
+                    description: shop.description || '',
+                    address: shop.address || '',
+                    city: shop.city || '',
+                    state: shop.state || '',
+                    zipCode: shop.zipCode || '',
+                    phone: shop.phone || '',
+                    email: shop.email || '',
+                    latitude: shop.latitude || 0,
+                    longitude: shop.longitude || 0
+                  });
+                }
+              }}
+              className={`flex items-center space-x-2 px-4 py-2 text-sm font-semibold rounded-xl border transition ${
+                activeTab === 'settings' 
+                  ? 'bg-sky-600 border-sky-500 text-white' 
+                  : 'bg-slate-800 border-slate-700 text-slate-350 hover:bg-slate-750'
+              }`}
+            >
+              <Settings className="h-4 w-4" />
+              <span>Settings</span>
+            </button>
+            <button
               onClick={handleLogout}
               className="flex items-center space-x-2 px-4 py-2 bg-slate-800 hover:bg-red-600/20 hover:text-red-400 border border-slate-700 hover:border-red-500/30 rounded-xl transition"
             >
@@ -377,6 +420,129 @@ const ShopDashboard = () => {
         {/* Tab Selection Render */}
         {activeTab === 'chats' ? (
           <ChatPanel />
+        ) : activeTab === 'settings' ? (
+          <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-8 max-w-4xl mx-auto space-y-6">
+            <div className="border-b border-slate-800 pb-4">
+              <h2 className="text-2xl font-bold">Update Shop Details</h2>
+              <p className="text-slate-400 text-sm mt-1">
+                Edit your shop name, contact info, and address here. Changes will take effect immediately.
+              </p>
+            </div>
+
+            {error && (
+              <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl text-sm">
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleUpdateShop} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">Shop Name*</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Quick Fix Mobiles"
+                    value={shopForm.name}
+                    onChange={(e) => setShopForm({ ...shopForm, name: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">Contact Number*</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. +1 555-0199"
+                    value={shopForm.phone}
+                    onChange={(e) => setShopForm({ ...shopForm, phone: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">Email Address*</label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="e.g. contact@quickfix.com"
+                    value={shopForm.email}
+                    onChange={(e) => setShopForm({ ...shopForm, email: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">Street Address*</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. 102 Main Street"
+                    value={shopForm.address}
+                    onChange={(e) => setShopForm({ ...shopForm, address: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">City*</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Chicago"
+                    value={shopForm.city}
+                    onChange={(e) => setShopForm({ ...shopForm, city: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">State*</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. IL"
+                    value={shopForm.state}
+                    onChange={(e) => setShopForm({ ...shopForm, state: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">Zip Code*</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. 60601"
+                    value={shopForm.zipCode}
+                    onChange={(e) => setShopForm({ ...shopForm, zipCode: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white px-4 py-2.5 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-slate-400 text-xs font-semibold mb-1 uppercase">Shop Description</label>
+                  <textarea
+                    rows="3"
+                    placeholder="Introduce your shop services, specialties, etc..."
+                    value={shopForm.description}
+                    onChange={(e) => setShopForm({ ...shopForm, description: e.target.value })}
+                    className="w-full bg-slate-900 border border-slate-800 text-white p-4 rounded-xl outline-none focus:border-sky-500 transition text-sm"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-4">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('overview')}
+                  className="px-4 py-2 border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-350 rounded-xl transition text-sm font-semibold"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-xl transition text-sm"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
         ) : (
           <>
             {/* Info Grid */}
