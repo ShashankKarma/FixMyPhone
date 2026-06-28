@@ -24,6 +24,12 @@ public class ChatController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ChatRoomRepository chatRoomRepository;
+
+    @Autowired
+    private ChatMessageRepository chatMessageRepository;
+
     @PostMapping("/shops/{shopId}/initiate")
     @PreAuthorize("hasRole('CUSTOMER')")
     public ResponseEntity<ChatRoomResponse> initiateChat(
