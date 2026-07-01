@@ -32,7 +32,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(LockedException.class)
     public ResponseEntity<String> handleLockedAccount(LockedException ex) {
-        return ResponseEntity.status(HttpStatus.LOCKED).body("This account has been locked due to too many failed attempts.");
+        return ResponseEntity.status(HttpStatus.LOCKED)
+                .body("This account has been locked due to too many failed attempts.");
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -52,6 +53,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGlobalException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred: " + ex.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("An unexpected error occurred: " + ex.getMessage());
     }
 }
