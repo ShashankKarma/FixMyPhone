@@ -41,6 +41,16 @@ public class ChatController {
         return ResponseEntity.ok(chatService.initiateChat(shopId, customer));
     }
 
+    @PostMapping("/rooms/initiate-by-owner/{customerId}")
+    @PreAuthorize("hasRole('SHOP_OWNER')")
+    public ResponseEntity<ChatRoomResponse> initiateChatByOwner(
+            @PathVariable Long customerId,
+            @AuthenticationPrincipal UserPrincipal userPrincipal) {
+        User owner = userRepository.findById(userPrincipal.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return ResponseEntity.ok(chatService.initiateChatByOwner(customerId, owner));
+    }
+
     @GetMapping("/rooms")
     public ResponseEntity<List<ChatRoomResponse>> getChatRooms(
             @AuthenticationPrincipal UserPrincipal userPrincipal) {

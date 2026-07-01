@@ -48,6 +48,27 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
+    public ChatRoomResponse initiateChatByOwner(Long customerId, User owner) {
+        User customer = userRepository.findById(customerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found"));
+
+        RepairShop shop = repairShopRepository.findByOwnerId(owner.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Shop not found for this user"));
+
+        Optional<ChatRoom> existingRoom = chatRoomRepository.findByCustomerIdAndShopId(customerId, shop.getId());
+        if (existingRoom.isPresent()) {
+            return mapToRoomResponse(existingRoom.get());
+        }
+
+        ChatRoom newRoom = ChatRoom.builder()
+                .customer(customer)
+                .shop(shop)
+                .build();
+
+        return mapToRoomResponse(chatRoomRepository.save(newRoom));
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<ChatRoomResponse> getChatRooms(User user) {
         boolean isAdmin = user.getRoles().stream().anyMatch(r -> r.getName().name().equals("ROLE_ADMIN"));

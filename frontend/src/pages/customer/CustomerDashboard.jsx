@@ -16,6 +16,7 @@ const CustomerDashboard = () => {
 
   // Tab State
   const [activeTab, setActiveTab] = useState('repairs'); // 'repairs' | 'chats'
+  const [activeRoomId, setActiveRoomId] = useState(null);
 
   // Data State
   const [appointments, setAppointments] = useState([]);
@@ -50,7 +51,8 @@ const CustomerDashboard = () => {
     try {
       setActionLoading(true);
       // Initiate room with this shop
-      await chatAPI.initiateChat(shopId);
+      const room = await chatAPI.initiateChat(shopId);
+      setActiveRoomId(room.id);
       // Switch tab to chats
       setActiveTab('chats');
     } catch (err) {
@@ -167,7 +169,7 @@ const CustomerDashboard = () => {
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-400"></div>
           </div>
         ) : activeTab === 'chats' ? (
-          <ChatPanel />
+          <ChatPanel initialActiveRoomId={activeRoomId} />
         ) : (
           <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-6 space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">

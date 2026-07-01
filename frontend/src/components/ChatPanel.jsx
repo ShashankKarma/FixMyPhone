@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { chatAPI } from '../services/api';
 import { MessageSquare, Send, User, Store, Clock, ArrowLeft } from 'lucide-react';
 
-const ChatPanel = () => {
+const ChatPanel = ({ initialActiveRoomId }) => {
   const { user } = useSelector((state) => state.auth);
   
   const [rooms, setRooms] = useState([]);
@@ -41,6 +41,16 @@ const ChatPanel = () => {
     const interval = setInterval(loadRooms, 10000);
     return () => clearInterval(interval);
   }, []);
+
+  // Auto-select room based on initialActiveRoomId
+  useEffect(() => {
+    if (initialActiveRoomId && rooms.length > 0) {
+      const room = rooms.find(r => r.id === initialActiveRoomId);
+      if (room) {
+        setActiveRoom(room);
+      }
+    }
+  }, [initialActiveRoomId, rooms]);
 
   // Fetch messages for active room
   const loadMessages = async (room) => {

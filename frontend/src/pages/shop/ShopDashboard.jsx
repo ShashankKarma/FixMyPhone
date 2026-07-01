@@ -7,7 +7,7 @@ import {
   Mail, FileText, Check, X, ShieldAlert, Plus, Trash2, ShieldCheck, 
   MapPin, PenTool, Play, MessageSquare, Settings
 } from 'lucide-react';
-import { shopsAPI, appointmentsAPI } from '../../services/api';
+import { shopsAPI, appointmentsAPI, chatAPI } from '../../services/api';
 import ChatPanel from '../../components/ChatPanel';
 
 const ShopDashboard = () => {
@@ -16,6 +16,7 @@ const ShopDashboard = () => {
 
   // Tab State
   const [activeTab, setActiveTab] = useState('overview'); // 'overview' | 'chats'
+  const [activeRoomId, setActiveRoomId] = useState(null);
 
   // Shop Owner State
   const [shop, setShop] = useState(null);
@@ -174,6 +175,20 @@ const ShopDashboard = () => {
     } catch (err) {
       console.error('Error updating status:', err);
       alert('Failed to update status.');
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleInitiateChat = async (customerId) => {
+    try {
+      setActionLoading(true);
+      const room = await chatAPI.initiateChatByOwner(customerId);
+      setActiveRoomId(room.id);
+      setActiveTab('chats');
+    } catch (err) {
+      console.error('Failed to initiate chat room:', err);
+      alert('Failed to open chat with this customer. Please try again.');
     } finally {
       setActionLoading(false);
     }
@@ -418,7 +433,7 @@ const ShopDashboard = () => {
 
         {/* Tab Selection Render */}
         {activeTab === 'chats' ? (
-          <ChatPanel />
+          <ChatPanel initialActiveRoomId={activeRoomId} />
         ) : activeTab === 'settings' ? (
           <div className="bg-slate-950/40 border border-slate-800 rounded-3xl p-8 max-w-4xl mx-auto space-y-6">
             <div className="border-b border-slate-800 pb-4">
@@ -661,6 +676,14 @@ const ShopDashboard = () => {
                             <div className="flex sm:flex-col items-end justify-end sm:justify-start gap-3 border-t sm:border-t-0 border-slate-800 pt-3 sm:pt-0">
                               
                               <div className="flex gap-2">
+                                <button
+                                  disabled={actionLoading}
+                                  onClick={() => handleInitiateChat(app.customerId)}
+                                  className="p-1.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-xl transition flex items-center justify-center"
+                                  title="Chat with Customer"
+                                >
+                                  <MessageSquare className="h-4 w-4" />
+                                </button>
                                 {app.status === 'PENDING' && (
                                   <>
                                     <button

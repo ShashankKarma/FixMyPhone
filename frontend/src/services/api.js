@@ -135,11 +135,11 @@ export const appointmentsAPI = {
     return response.data;
   },
   getCustomerAppointments: async () => {
-    const response = await api.get('/appointments/customer');
+    const response = await api.get('/appointments');
     return response.data;
   },
-  getShopAppointments: async (shopId) => {
-    const response = await api.get(`/appointments/shop/${shopId}`);
+  getShopAppointments: async () => {
+    const response = await api.get('/appointments');
     return response.data;
   },
   getShopAppointmentsByDate: async (shopId, date) => {
@@ -163,6 +163,10 @@ export const appointmentsAPI = {
 export const chatAPI = {
   initiateChat: async (shopId) => {
     const response = await api.post(`/chat/shops/${shopId}/initiate`);
+    return response.data;
+  },
+  initiateChatByOwner: async (customerId) => {
+    const response = await api.post(`/chat/rooms/initiate-by-owner/${customerId}`);
     return response.data;
   },
   getRooms: async () => {
